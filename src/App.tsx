@@ -40,7 +40,7 @@ const PEOPLE: PersonProfile[] = [
     philosophy: [
       "Việc gì sẽ mang lại 1 triệu đô? Đầu tư vào bản thân và các tài sản sinh lời thụ động.",
       "Làm việc thông minh hơn, không phải chăm chỉ hơn.",
-      "Kỷ luật là chìa khóa của sự tự do tài chính."
+      "Digital Detox: Giảm thiểu xao nhãng từ mạng xã hội.",
     ],
     timeManagement: [
       "Nguyên tắc 80/20: Tập trung vào 20% công việc tạo ra 80% kết quả.",
@@ -75,7 +75,7 @@ const PEOPLE: PersonProfile[] = [
     timeManagement: [
       "Phương pháp Pomodoro: Làm việc tập trung trong 25 phút.",
       "Morning Routine: Tối ưu hóa năng lượng vào buổi sáng.",
-      "Digital Detox: Giảm thiểu xao nhãng từ mạng xã hội."
+      "Kỷ luật là chìa khóa của sự tự do tài chính."
     ]
   }
 ];
