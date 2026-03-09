@@ -108,10 +108,10 @@ const RealTimeMoneyTracker = () => {
         {/* Remaining Card */}
         <div className="bg-stone-900 rounded-[2rem] p-8 border border-white/10 relative overflow-hidden group">
           <div className="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity">
-            <ArrowDownRight className="w-24 h-24 text-emerald-500" />
+            <ArrowDownRight className="w-24 h-24 text-brand" />
           </div>
           <div className="relative z-10">
-            <div className="flex items-center gap-2 text-emerald-400 text-xs font-bold uppercase tracking-[0.2em] mb-4">
+            <div className="flex items-center gap-2 text-brand text-xs font-bold uppercase tracking-[0.2em] mb-4">
               <Activity className="w-4 h-4 animate-pulse" /> Khoảng cách còn lại
             </div>
             <div className="text-4xl sm:text-5xl font-mono font-bold text-white tabular-nums tracking-tighter">
@@ -127,7 +127,7 @@ const RealTimeMoneyTracker = () => {
         {/* Progress Card */}
         <div className="bg-white rounded-[2rem] p-8 border border-stone-200 shadow-xl shadow-stone-200/30 relative overflow-hidden">
           <div className="flex items-center gap-2 text-stone-400 text-xs font-bold uppercase tracking-[0.2em] mb-4">
-            <Coins className="w-4 h-4 text-emerald-600" /> Số tiền đã mất đi
+            <Coins className="w-4 h-4 text-brand" /> Số tiền đã mất đi
           </div>
           <div className="text-4xl sm:text-5xl font-mono font-bold text-[#1A1A1A] tabular-nums tracking-tighter">
             {earned.toLocaleString('vi-VN', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
@@ -135,7 +135,7 @@ const RealTimeMoneyTracker = () => {
           </div>
           <div className="mt-6 w-full bg-stone-100 h-2 rounded-full overflow-hidden">
             <motion.div 
-              className="h-full bg-emerald-600"
+              className="h-full bg-brand"
               initial={{ width: 0 }}
               animate={{ width: `${(earned / TOTAL_GOAL) * 100}%` }}
               transition={{ duration: 1 }}
@@ -189,11 +189,11 @@ const CountdownTimer = () => {
       ].map((item, idx) => (
         <div key={idx} className={cn(
           "bg-stone-900 rounded-2xl p-3 border border-white/10",
-          item.highlight && "bg-emerald-950 border-emerald-500/30"
+          item.highlight && "bg-brand/10 border-brand/30"
         )}>
           <div className={cn(
             "text-2xl sm:text-3xl font-mono font-bold text-white",
-            item.highlight && "text-emerald-400"
+            item.highlight && "text-brand"
           )}>
             {item.value.toString().padStart(2, '0')}
           </div>
@@ -208,26 +208,26 @@ export default function App() {
   const [activePerson, setActivePerson] = useState(PEOPLE[0]);
 
   return (
-    <div className="min-h-screen bg-[#FDFCFB] text-[#1A1A1A] font-sans selection:bg-emerald-100">
+    <div className="min-h-screen bg-[#FDFCFB] text-[#1A1A1A] font-sans selection:bg-brand/20">
       {/* Navigation */}
       <nav className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-stone-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center gap-2">
-              <div className="w-8 h-8 bg-emerald-600 rounded-lg flex items-center justify-center">
+              <div className="w-8 h-8 bg-brand rounded-lg flex items-center justify-center">
                 <Target className="text-white w-5 h-5" />
               </div>
               <span className="font-bold text-xl tracking-tight">MillionGoal</span>
             </div>
-            <div className="flex gap-1 sm:gap-4">
+            <div className="flex gap-1 sm:gap-4 overflow-x-auto no-scrollbar">
               {PEOPLE.map((person) => (
                 <button
                   key={person.name}
                   onClick={() => setActivePerson(person)}
                   className={cn(
-                    "px-3 py-1.5 rounded-full text-sm font-medium transition-all duration-200",
+                    "px-3 py-1.5 rounded-full text-sm font-medium transition-all duration-200 whitespace-nowrap",
                     activePerson.name === person.name
-                      ? "bg-emerald-600 text-white shadow-md shadow-emerald-200"
+                      ? "bg-brand text-white shadow-md shadow-brand/20"
                       : "text-stone-500 hover:bg-stone-100"
                   )}
                 >
@@ -254,12 +254,12 @@ export default function App() {
               <motion.div
                 initial={{ scale: 0.9 }}
                 animate={{ scale: 1 }}
-                className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-100 text-emerald-700 text-xs font-bold uppercase tracking-widest"
+                className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand/10 border border-brand/20 text-brand text-xs font-bold uppercase tracking-widest"
               >
                 <Timer className="w-3 h-3" /> Lộ trình 10 năm (Từ 01/01/2026)
               </motion.div>
               <h1 className="text-5xl sm:text-7xl font-bold tracking-tighter leading-none">
-                Chinh phục <span className="text-emerald-600">26 Tỷ VND</span>
+                Chinh phục <span className="text-brand">26 Tỷ VND</span>
               </h1>
               
               <div className="max-w-3xl mx-auto">
@@ -276,7 +276,7 @@ export default function App() {
               <div className="flex items-center justify-between">
                 <div>
                   <h2 className="text-2xl font-bold flex items-center gap-2">
-                    <Activity className="text-emerald-600" /> Máy tính đếm ngược tài sản
+                    <Activity className="text-brand" /> Máy tính đếm ngược tài sản
                   </h2>
                   <p className="text-stone-400 text-sm">Cập nhật số dư mục tiêu theo thời gian thực</p>
                 </div>
@@ -293,8 +293,8 @@ export default function App() {
                 className="bg-stone-900 text-white rounded-3xl p-8 sm:p-10 space-y-8"
               >
                 <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 rounded-2xl bg-emerald-500/20 flex items-center justify-center">
-                    <Briefcase className="text-emerald-400 w-6 h-6" />
+                  <div className="w-12 h-12 rounded-2xl bg-brand/20 flex items-center justify-center">
+                    <Briefcase className="text-brand w-6 h-6" />
                   </div>
                   <h2 className="text-3xl font-bold tracking-tight">Nghệ thuật làm việc</h2>
                 </div>
@@ -302,7 +302,7 @@ export default function App() {
                 <div className="space-y-6">
                   {activePerson.philosophy.map((item, idx) => (
                     <div key={idx} className="flex gap-4 group">
-                      <div className="text-emerald-500 font-mono text-lg opacity-50 group-hover:opacity-100 transition-opacity">0{idx + 1}</div>
+                      <div className="text-brand font-mono text-lg opacity-50 group-hover:opacity-100 transition-opacity">0{idx + 1}</div>
                       <p className="text-lg text-stone-300 leading-relaxed font-light italic">
                         "{item}"
                       </p>
@@ -311,7 +311,7 @@ export default function App() {
                 </div>
 
                 <div className="pt-6 border-t border-white/10">
-                  <div className="flex items-center gap-2 text-emerald-400 text-sm font-bold uppercase tracking-widest">
+                  <div className="flex items-center gap-2 text-brand text-sm font-bold uppercase tracking-widest">
                     <Lightbulb className="w-4 h-4" /> Câu hỏi cốt lõi
                   </div>
                   <p className="mt-2 text-stone-400">
@@ -326,16 +326,16 @@ export default function App() {
                 className="bg-white border border-stone-200 rounded-3xl p-8 sm:p-10 space-y-8"
               >
                 <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 rounded-2xl bg-emerald-50 flex items-center justify-center">
-                    <Clock className="text-emerald-600 w-6 h-6" />
+                  <div className="w-12 h-12 rounded-2xl bg-brand/10 flex items-center justify-center">
+                    <Clock className="text-brand w-6 h-6" />
                   </div>
                   <h2 className="text-3xl font-bold tracking-tight">Thuật quản lý thời gian</h2>
                 </div>
 
                 <div className="space-y-4">
                   {activePerson.timeManagement.map((item, idx) => (
-                    <div key={idx} className="flex items-center gap-4 p-4 rounded-2xl bg-stone-50 border border-stone-100 hover:border-emerald-200 hover:bg-emerald-50/30 transition-all cursor-default">
-                      <CheckCircle2 className="text-emerald-600 w-5 h-5 shrink-0" />
+                    <div key={idx} className="flex items-center gap-4 p-4 rounded-2xl bg-stone-50 border border-stone-100 hover:border-brand/30 hover:bg-brand/10 transition-all cursor-default">
+                      <CheckCircle2 className="text-brand w-5 h-5 shrink-0" />
                       <span className="font-medium text-stone-700">{item}</span>
                     </div>
                   ))}
@@ -348,7 +348,7 @@ export default function App() {
                   </div>
                   <div className="p-4 rounded-2xl border border-stone-200">
                     <div className="text-xs text-stone-400 uppercase font-bold mb-1">Kỷ luật</div>
-                    <div className="text-2xl font-bold text-emerald-600">100%</div>
+                    <div className="text-2xl font-bold text-brand">100%</div>
                   </div>
                 </div>
               </motion.section>
